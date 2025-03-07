@@ -10,6 +10,8 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Custom color styles will come later, i promise ;-) */
 }
 
 body {
@@ -38,12 +40,4 @@ ul {
 
 .app {
   width: min(600px, 100% - 2rem);
-}
-
-
-.card__collection-name{
-  font-size: 2rem;
-  font-weight: 700;
-  color:#c1baba;
-  width: 100%;
 }
