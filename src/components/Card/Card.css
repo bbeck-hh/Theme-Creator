@@ -6,15 +6,21 @@
     padding: 1rem;
 }
 .card__collection-name{
+    display: flex;
+    justify-content: space-evenly;
+    justify-content: space-between;
+    align-items: center;
     font-size: 2rem;
     font-weight: 700;
     color:#c1baba;
     width: 100%;
+    margin-bottom: 1rem;
   }
 .card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 9rem;
     border-radius: .5rem;
     border-color: red; 
     border-width: .25rem;
