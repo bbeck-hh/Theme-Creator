@@ -5,27 +5,41 @@
     flex-wrap: wrap;
     padding: 1rem;
 }
+.card-details{
+    display: flex;
+    justify-content: space-evenly;
+    /* justify-content: flex-start; */
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
 .card__collection-name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-size: 2rem;
     font-weight: 700;
-    color:#c1baba;
+    color: var(--collectionName);
     width: 100%;
+    margin-bottom: 1rem;
   }
 .card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 9rem;
     border-radius: .5rem;
-    border-color: red; 
+    border-color: var(--red); 
     border-width: .25rem;
     border-style: solid;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    background-color: #fff;
+    background-color: var(--white); ;
     margin-bottom: 1rem;
 }
 .card__color {
     height: 5rem;
+    border-bottom: .25rem solid var(--red); ;
 }
 .card__content{
     display: inherit;
@@ -33,17 +47,17 @@
     padding: .25rem;
 }
 .card__color-name {
-    font-size: .5rem;
+    font-size: .75rem;
     font-weight: 700;
-    width: 5rem;
+    width: 6rem;
     padding: .125rem;
-    background-color: pink;
-    border: 1px solid #000;
+    background-color: var(--bgCardColorName);
+    border: 1px solid var(--black);
     border-bottom-right-radius: .5rem;
 }
 .card__color-role {
     font-size: 1rem;
     font-weight: 700;
-    color: #2a1f1f;
+    color: var(--black);
     margin: 0 0 .5rem;
 }

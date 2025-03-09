@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from 'react';
-
-import Card from "./components/Card/Card";
+import React, { useState } from 'react';
+import Theme from './components/Theme/Theme';
+import { themes } from './db';
 import "./styles.css";
 
-import { themes } from './db';
-
 export default function App() {
+  const [activeTheme, setActiveTheme] = useState(null); // Initial kein geöffnetes Theme
+
   return (
     <>
-      <h1>Theme Creator</h1>
+      <header>
+        <h1>Theme Creator</h1>
+      </header>
+
       {
         themes.map((theme, index) => (
           <div key={index} className="card-container">
-            <h2 className="card__collection-name">{theme.name}</h2>
-            {theme.colors.map((color, colorIndex) => (
-              <Card
-                key={colorIndex}
-                colorRole={color.role}
-                colorHex={color.value}
-                colorName={color.name}
-              />
-            ))}
+            {/* Übergabe der Props an das Theme-Element */}
+            <Theme
+              // aktuelles Theme
+              theme={theme}
+              // Index des aktuellen Themes
+              index={index}
+              // Index des aktuell geöffneten Themes
+              activeTheme={activeTheme}
+              //Setter-Funktion, um das aktuell geöffnete Theme zu setzen
+              setActiveTheme={setActiveTheme}
+            />
           </div>
         ))
       }

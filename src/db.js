@@ -77,4 +77,30 @@ export const themes = [
             },
         ],
     },
+    {
+        "id": "2",
+        "name": "beck_01",
+        "colors": [
+            {
+                "role": "primary",
+                "value": "#006400",
+                "name": "Forresrgreen"
+            },
+            {
+                "role": "secondary",
+                "value": "#F5F5DC",
+                "name": "Cremewhite"
+            },
+            {
+                "role": "surface",
+                "value": "#ff4a11",
+                "name": "Darkorange"
+            },
+            {
+                "role": "surface-on",
+                "value": "#654321",
+                "name": "Brownstyle"
+            }
+        ]
+    }
 ];
