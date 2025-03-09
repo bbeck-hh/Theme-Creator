@@ -3,30 +3,48 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: rgba(65, 63, 63, 0.87);
-  background-color: #242424;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 
-  /* Custom color styles will come later, i promise ;-) */
-}
+  --red: #ff0000;
+  --white: #ffffff;
+  --black: #000;
+  --lightgray: #8c8080;
+  --darkgray:#4f4949;
+  --beige: #f5f5dc;
+  --lightpink: #ffc0cb;
+  
+  
+  --bgBody: var(--lightgray);
+  --bgHeader: var(--darkgray);
+  --headerColor: var(--beige);
+  --collectionName: var(--beige);
+  --bgCardColorName: var(--lightpink);
+  --borderCard: var(--darkbrown);
+ 
+ 
+
 
 body {
+  background-color: var(--bgBody);
   margin: 0;
   display: grid;
   justify-content: center;
-  /* min-height: 100vh; */
   color: #110c0c;
 }
-
+header {
+  width:100vw;
+  background-color: var(--bgHeader);
+  margin-bottom: 1rem
+}
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
   text-align: center;
-  color:  beige;
+  color:  var(--headerColor);
 }
 
 ul {
