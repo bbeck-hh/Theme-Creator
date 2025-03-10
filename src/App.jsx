@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Theme from './components/Theme/Theme';
+import ThemeForm from './components/ThemeForm/ThemeForm';
 import { themes } from './db';
 import "./styles.css";
 
@@ -11,7 +12,7 @@ export default function App() {
       <header>
         <h1>Theme Creator</h1>
       </header>
-
+      <ThemeForm />
       {
         themes.map((theme, index) => (
           <div key={index} className="card-container">
