@@ -9,7 +9,7 @@ export default function App() {
   const [themes, setThemes] = useState(initialThemes);
 
   function handleAddTheme(newTheme) {
-    setThemes([...themes, newTheme]);
+    setThemes([newTheme, ...themes]);
   }
 
   function handleDeleteTheme(index) {
