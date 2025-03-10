@@ -1,3 +1,8 @@
+.theme{
+  width: 100vw;
+  padding: 1rem;
+}
+
 .theme__colors{
     display: flex;
     justify-content: space-between;

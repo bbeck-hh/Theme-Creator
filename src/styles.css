@@ -45,7 +45,6 @@ body {
   color: var(--black); /* default color */
 }
 header {
-  width:100vw;
   background-color: var(--bgHeader);
   margin-bottom: 1rem
 }
