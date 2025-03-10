@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Card from "../Card/Card";
 import "./Theme.css";
 
-export default function Theme({ theme, index, activeTheme, setActiveTheme }) {
+export default function Theme({ theme, index, activeTheme, setActiveTheme, onDeleteTheme }) {
     function handleCollapse(event) {
         event.preventDefault();
         // Wenn das gerade angeklickte Theme bereits geöffnet ist, schließe es, andernfalls öffne es
@@ -14,7 +14,6 @@ export default function Theme({ theme, index, activeTheme, setActiveTheme }) {
         <div className="theme">
             <div className="card__collection-name">
                 <span>{theme.name}</span>
-
                 <button onClick={handleCollapse} className={activeTheme === index ? 'active' : ''}>
                 </button>
             </div>
@@ -30,13 +29,18 @@ export default function Theme({ theme, index, activeTheme, setActiveTheme }) {
                         // colorRole ist die Rolle der Farbe,
                         // colorHex ist der Hex-Wert der Farbe,
                         // colorName ist der Name der Farbe
-                        <Card
-                            key={colorIndex}
-                            colorRole={color.role}
-                            colorHex={color.value}
-                            colorName={color.name}
-                        />
+                        <React.Fragment key={colorIndex}>
+                            <Card
+                                colorRole={color.role}
+                                colorHex={color.value}
+                                colorName={color.name}
+                                onDeleteTheme={() => onDeleteTheme(index)}
+                            />
+                        </React.Fragment>
                     ))}
+                    <button className="delete-button" onClick={() => onDeleteTheme(index)}>
+                        Lösche das Theme
+                    </button>
                 </div>
             ) : (
                 <div className="theme__preview">

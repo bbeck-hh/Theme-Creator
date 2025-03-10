@@ -114,7 +114,7 @@ export default function ThemeForm({ onAddTheme }) {
                                 <button type="button" className="color-picker__button" onClick={handleClosePicker}></button>
                             </div>
                         )}
-                        <button className="addTheme__button">Add your Theme</button>
+                        <button className="addTheme__button">Füge dein Theme hinzu</button>
                     </div>
                 </form>
             </div>

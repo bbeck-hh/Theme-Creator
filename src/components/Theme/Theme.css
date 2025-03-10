@@ -1,3 +1,4 @@
+@import url('../Buttons/Buttons.css');
 .theme{
   width: 100vw;
   padding: 1rem;
@@ -16,19 +17,3 @@
 }
 
 
-/* Button goes here */
-button {
-    width: 2rem; 
-    height: 2rem; 
-    background-image: url('./../../assets/chevron-up-w.png'); 
-    background-size: cover; 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: transparent;
-    border: none; 
-    cursor: pointer; 
-  }
-
-  button.active {
-    background-image: url('./../../assets/chevron-down-w.png');
-  }

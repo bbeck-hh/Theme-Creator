@@ -11,12 +11,18 @@ export default function App() {
   function handleAddTheme(newTheme) {
     setThemes([...themes, newTheme]);
   }
+
+  function handleDeleteTheme(index) {
+    const newThemes = themes.filter((theme, i) => i !== index);
+    setThemes(newThemes);
+  }
+
   return (
     <>
       <header>
         <h1>Theme Creator</h1>
       </header>
-      <ThemeForm onAddTheme={handleAddTheme} />
+      <ThemeForm onAddTheme={handleAddTheme} onDeleteTheme={handleDeleteTheme} />
       {
         themes.map((theme, index) => (
           <div key={index} className="card-container">
@@ -30,6 +36,8 @@ export default function App() {
               activeTheme={activeTheme}
               //Setter-Funktion, um das aktuell geöffnete Theme zu setzen
               setActiveTheme={setActiveTheme}
+              // Funktion zum Löschen eines Themes
+              onDeleteTheme={handleDeleteTheme}
             />
           </div>
         ))
