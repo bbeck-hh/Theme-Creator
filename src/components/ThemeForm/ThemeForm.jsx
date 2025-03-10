@@ -2,26 +2,61 @@ import React, { useState } from "react";
 import { HexColorPicker } from "react-colorful";
 import { v4 as uuid } from "uuid";
 import "./ThemeForm.css";
-export default function ThemeForm() {
+
+export default function ThemeForm({ onAddTheme }) {
     // Verwalten der Farben, für die Farbauswahl im Color Picker.
+    // Default Farbe ist #aabbcc
     const [color, setColor] = useState("#aabbcc");
+
+    // Aktives Color Field
     const [activeColorField, setActiveColorField] = useState(null);
+
+    // Eingegebener Theme Name
+    const [themeName, setThemeName] = useState("");
+
+    // Default Farbe für die "Kreise" Farbauswahl
+    const defaultColor = "#fff";
+
+    // Default Value Array -> vereinfacht das hinzufügen von neuen Themes
+    // role -> Farbrolle, value -> Farbwert, name -> Farbname
+    const defaultValueArray = [
+        { role: 'primary', value: defaultColor, name: 'Primary Color' },
+        { role: 'secondary', value: defaultColor, name: 'Secondary Color' },
+        { role: 'tertiary', value: defaultColor, name: 'Tertiary Color' },
+        { role: 'quaternary', value: defaultColor, name: 'Quaternary Color' },
+    ];
+
+    // Farben Array
+    const [colors, setColors] = useState(defaultValueArray);
+
+
+    const randomId = uuid();
 
     function handleSubmit(event) {
         event.preventDefault();
-
+        const newTheme = {
+            id: uuid(),
+            name: event.target.name.value,
+            colors: colors,
+        };
+        onAddTheme(newTheme);
+        resetForm();
     }
 
     // Color Field Click -> Setzt den aktiven Color Field
     function handleColorFieldClick(index) {
         setActiveColorField(index);
+        setColor(colors[index].value);
     }
 
-    // Change Color -> Setzt die aktive Farbe aus dem Color Picker und überschreibt den default
+    // Change Color ->
+    // Setzt die aktive Farbe aus dem Color Picker und überschreibt den default Wert
     function handleColorChange(newColor) {
         setColor(newColor);
         if (activeColorField !== null) {
-            document.getElementById(`color-field-${activeColorField}`).style.backgroundColor = newColor;
+            const updatedColors = [...colors];
+            updatedColors[activeColorField].value = newColor;
+            setColors(updatedColors);
         }
     }
 
@@ -30,7 +65,14 @@ export default function ThemeForm() {
         setActiveColorField(null);
     }
 
-    const randomId = uuid();
+    // Reset Form -> 
+    // Setzt den Theme Name, die Farben zurück und schliesst den Color Picker
+    function resetForm() {
+        setThemeName("");
+        setColors(defaultValueArray);
+        setActiveColorField(null);
+    }
+
     return (
         <>
             <div className="card-container">
@@ -43,6 +85,8 @@ export default function ThemeForm() {
                             name="name"
                             id="theme-name"
                             placeholder="Name"
+                            value={themeName}
+                            onChange={(e) => setThemeName(e.target.value)}
                             required
                         />
 
@@ -57,7 +101,7 @@ export default function ThemeForm() {
                                     key={index}
                                     id={`color-field-${index}`}
                                     className="theme__color-plate addTheme__pickColor"
-                                    style={{ backgroundColor: '#ffffff' }}
+                                    style={{ backgroundColor: colors[index].value }}
                                     onClick={() => handleColorFieldClick(index)}
                                 ></div>
                             ))}

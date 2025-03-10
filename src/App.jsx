@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import Theme from './components/Theme/Theme';
 import ThemeForm from './components/ThemeForm/ThemeForm';
-import { themes } from './db';
+import { themes as initialThemes } from './db';
 import "./styles.css";
 
 export default function App() {
   const [activeTheme, setActiveTheme] = useState(null); // Initial kein geöffnetes Theme
+  const [themes, setThemes] = useState(initialThemes);
 
+  function handleAddTheme(newTheme) {
+    setThemes([...themes, newTheme]);
+  }
   return (
     <>
       <header>
         <h1>Theme Creator</h1>
       </header>
-      <ThemeForm />
+      <ThemeForm onAddTheme={handleAddTheme} />
       {
         themes.map((theme, index) => (
           <div key={index} className="card-container">
