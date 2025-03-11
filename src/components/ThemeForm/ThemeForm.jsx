@@ -26,6 +26,8 @@ export default function ThemeForm({ onAddTheme }) {
         { role: 'Surface-on', value: defaultColor, name: 'Quaternary Color' },
     ];
 
+    // "kreise" die eine Schraffur erhalten
+    const colorPlates = document.querySelectorAll('.addTheme__colors .theme__color-plate');
     // Farben Array
     const [colors, setColors] = useState(defaultValueArray);
 
@@ -44,9 +46,11 @@ export default function ThemeForm({ onAddTheme }) {
     }
 
     // Color Field Click -> Setzt den aktiven Color Field
-    function handleColorFieldClick(index) {
+    function handleColorFieldClick(event, index) {
         setActiveColorField(index);
         setColor(colors[index].value);
+        // Entfernt die Schraffur von dem geklickten Element
+        event.currentTarget.classList.remove('color-plate-stripes');
     }
 
     // Change Color ->
@@ -71,6 +75,8 @@ export default function ThemeForm({ onAddTheme }) {
         setThemeName("");
         setColors(defaultValueArray);
         setActiveColorField(null);
+        // Füge die Klasse 'color-plate-stripes' für die Schraffur zu allen 4 "Kreisen" hinzu
+        colorPlates.forEach(plate => plate.classList.add('color-plate-stripes'));
     }
 
     return (
@@ -78,7 +84,7 @@ export default function ThemeForm({ onAddTheme }) {
             <div className="card-container">
                 <form className="addTheme__form" onSubmit={handleSubmit}>
                     <div className="addTheme__container" id={randomId}>
-                        <h2>Add a Theme</h2>
+                        <h2>Erstelle ein Farbschema</h2>
                         <label htmlFor="theme-name"></label>
                         <input
                             type="text"
@@ -100,9 +106,11 @@ export default function ThemeForm({ onAddTheme }) {
                                     // Change Color -> Setzt die aktive Farbe aus dem Color Picker und überschreibt den default
                                     key={index}
                                     id={`color-field-${index}`}
-                                    className="theme__color-plate addTheme__pickColor"
+                                    className="theme__color-plate color-plate-stripes"
                                     style={{ backgroundColor: colors[index].value }}
-                                    onClick={() => handleColorFieldClick(index)}
+                                    // onClick -> Setzt den aktiven Color Field und 
+                                    // zum entfernen der Klasse 'color-plate-stripes' von dem geklickten Element
+                                    onClick={(event) => handleColorFieldClick(event, index)}
                                 ></div>
                             ))}
                         </div>
