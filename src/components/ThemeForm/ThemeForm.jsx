@@ -22,8 +22,8 @@ export default function ThemeForm({ onAddTheme }) {
     const defaultValueArray = [
         { role: 'primary', value: defaultColor, name: 'Primary Color' },
         { role: 'secondary', value: defaultColor, name: 'Secondary Color' },
-        { role: 'tertiary', value: defaultColor, name: 'Tertiary Color' },
-        { role: 'quaternary', value: defaultColor, name: 'Quaternary Color' },
+        { role: 'Surface', value: defaultColor, name: 'Tertiary Color' },
+        { role: 'Surface-on', value: defaultColor, name: 'Quaternary Color' },
     ];
 
     // Farben Array

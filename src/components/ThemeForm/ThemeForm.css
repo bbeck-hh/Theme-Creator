@@ -1,7 +1,10 @@
 @import url('../Buttons/Buttons.css');
 .addTheme__form {
     width: 100vw;  
-    padding: 0 1rem; 
+    padding: 0 1rem 1rem; 
+    border-top: .25rem solid var(--bgFormBorder);
+    border-bottom: .25rem solid var(--bgFormBorder);
+    background-color: var( --bgForm);
 }
 .addTheme__container {
     display: flex;

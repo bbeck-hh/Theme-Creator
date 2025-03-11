@@ -13,6 +13,7 @@
   --white: #ffffff;
   --black: #000;
   --lightgray: #8c8080;
+  --lightgray-100:#6f6c69;
   --darkgray:#4f4949;
   --beige: #f5f5dc;
   --lightpink: #ffc0cb;
@@ -24,6 +25,8 @@
   --collectionName: var(--beige);
   --bgCardColorName: var(--lightpink);
   --borderCard: var(--darkbrown);
+  --bgForm: var(--lightgray-100);
+  --bgFormBorder: var(--darkgray);
 }
   *,
   *::before,
