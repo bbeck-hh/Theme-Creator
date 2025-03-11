@@ -6,6 +6,7 @@ export default function Theme({ theme, index, activeTheme, setActiveTheme, onDel
     function handleCollapse(event) {
         event.preventDefault();
         // Wenn das gerade angeklickte Theme bereits geöffnet ist, schließe es, andernfalls öffne es
+        // Dieser Mechanismus ermöglicht es, das aktive Thema zu toggeln (ein- und auszuschalten).
         setActiveTheme(activeTheme === index ? null : index);
         //console.log(`theme.name: ${theme.name} und index: ${index}`);
     }
