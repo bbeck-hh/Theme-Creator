@@ -17,7 +17,7 @@ export default function ThemeForm({ onAddTheme }) {
     // Default Farbe für die "Kreise" Farbauswahl
     const defaultColor = "#fff";
 
-    // Default Value Array -> vereinfacht das hinzufügen von neuen Themes
+    // Default Value Array(Array von Objekten) -> vereinfacht das hinzufügen von neuen Themes
     // role -> Farbrolle, value -> Farbwert, name -> Farbname
     const defaultValueArray = [
         { role: 'primary', value: defaultColor, name: 'Primary Color' },
